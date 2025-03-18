@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import HomeScreen from './src/screens/HomeScreen'
+import InscriptionScreen from './src/screens/InscriptionScreen'
+import ListingScreen from './src/screens/ListingScreen'
+import FicheEtudiant from './src/screens/FicheEtudiantsScreen'
+import StackNavigator from './src/navigation/StackNavigator'
+import { NavigationContainer } from '@react-navigation/native'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <StackNavigator></StackNavigator>
+    //<HomeScreen></HomeScreen>
+    //<InscriptionScreen></InscriptionScreen>
+    //<ListingScreen></ListingScreen>
+    //<FicheEtudiant></FicheEtudiant>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
