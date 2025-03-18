@@ -12,7 +12,7 @@ const HomeScreen = ({ navigation }) => {
         title
         color={COLORS.white}
       />
-      <View style={{ width: '100%', alignItems: 'flex-start', paddingBottom: 25, gap: 30 }}>
+      <View style={{ width: '100%', alignItems: 'flex-start', paddingBottom: 25, gap: 20 }}>
         <ButtonCustom
           text="S'inscrire"
           btnPrimary

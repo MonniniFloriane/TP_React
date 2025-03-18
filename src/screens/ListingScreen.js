@@ -47,7 +47,7 @@ const ListingScreen = ({ navigation }) => {
         />
         <View style={{ gap: 30, paddingTop: 30 }}>
           <ListDetail
-            text="Nommmmm"
+            text="Nom"
             text2="Notes"
             color={COLORS.primary}
             iconName="arrow-forward-outline"
@@ -55,7 +55,42 @@ const ListingScreen = ({ navigation }) => {
           ></ListDetail>
 
           <ListDetail
-            text="Nommmmm"
+            text="Nom"
+            text2="Notes"
+            color={COLORS.primary}
+            iconName="arrow-forward-outline"
+          ></ListDetail>
+
+          <ListDetail
+            text="Nom"
+            text2="Notes"
+            color={COLORS.primary}
+            iconName="arrow-forward-outline"
+          ></ListDetail>
+
+          <ListDetail
+            text="Nom"
+            text2="Notes"
+            color={COLORS.primary}
+            iconName="arrow-forward-outline"
+          ></ListDetail>
+
+          <ListDetail
+            text="Nom"
+            text2="Notes"
+            color={COLORS.primary}
+            iconName="arrow-forward-outline"
+          ></ListDetail>
+
+          <ListDetail
+            text="Nom"
+            text2="Notes"
+            color={COLORS.primary}
+            iconName="arrow-forward-outline"
+          ></ListDetail>
+
+          <ListDetail
+            text="Nom"
             text2="Notes"
             color={COLORS.primary}
             iconName="arrow-forward-outline"

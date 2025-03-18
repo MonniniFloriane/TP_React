@@ -1,9 +1,17 @@
 import { Text, View } from 'react-native'
-import { globalStyles } from '../theme/styles'
+import { globalStyles, COLORS } from '../theme/styles'
+import { Ionicons } from '@expo/vector-icons'
 
-const TextCustom = ({ text, h1, h2, h3, h4, h5, paragraph, paragraphLeft, color, multiLines, numberOfLines }) => {
+const TextCustom = ({ text, h1, h2, h3, h4, h5, paragraph, paragraphLeft, color, multiLines, numberOfLines, iconName }) => {
   return (
     <View style={{ alignItems: 'center', flexDirection: 'row', gap: 10, paddingBottom: 10 }}>
+      {iconName && (
+        <Ionicons
+          name={iconName}
+          size={25}
+          color={COLORS.primary}
+        />
+      )}
       <Text
         ellipsizeMode="tail"
         multiLines={multiLines}

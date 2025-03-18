@@ -22,59 +22,69 @@ const FicheEtudiant = ({ navigation }) => {
         h1
         color={COLORS.primary}
       />
-      <View style={{ gap: 50, paddingTop: 30 }}>
-        <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-between' }}>
+      <View style={{ paddingTop: 30, height: '73%' }}>
+        <View style={{ gap: 30 }}>
+          <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-between' }}>
+            <StudentInfos
+              text="Nom :"
+              text2="infos"
+              color={COLORS.primary}
+              iconName="person-outline"
+            ></StudentInfos>
+
+            <StudentInfos
+              text="Prénom :"
+              text2="infos"
+              color={COLORS.primary}
+            ></StudentInfos>
+          </View>
+
           <StudentInfos
-            text="Nom :"
+            text="Date de naissance :"
             text2="infos"
             color={COLORS.primary}
-            iconName="person-outline"
+            iconName="calendar-outline"
           ></StudentInfos>
 
           <StudentInfos
-            text="Prénom :"
+            text="E-mail :"
             text2="infos"
             color={COLORS.primary}
+            iconName="mail-outline"
+          ></StudentInfos>
+
+          <StudentInfos
+            text="Téléphone :"
+            text2="infos"
+            color={COLORS.primary}
+            iconName="phone-portrait-outline"
+          ></StudentInfos>
+
+          <StudentInfos
+            text="Moyenne :"
+            text2="infos"
+            color={COLORS.primary}
+            iconName="bar-chart-outline"
           ></StudentInfos>
         </View>
+      </View>
 
-        <StudentInfos
-          text="Date de naissance :"
-          text2="infos"
+      <View style={{ paddingTop: 30, gap: 20 }}>
+        <ButtonCustom
+          text="modifier"
+          btnSecondary
           color={COLORS.primary}
-          iconName="calendar-outline"
-        ></StudentInfos>
+          onPress={() => navigation.navigate('InscriptionScreen')}
+          width="100%"
+        />
 
-        <StudentInfos
-          text="E-mail :"
-          text2="infos"
-          color={COLORS.primary}
-          iconName="mail-outline"
-        ></StudentInfos>
-
-        <StudentInfos
-          text="Téléphone :"
-          text2="infos"
-          color={COLORS.primary}
-          iconName="phone-portrait-outline"
-        ></StudentInfos>
-
-        <StudentInfos
-          text="Moyenne :"
-          text2="infos"
-          color={COLORS.primary}
-          iconName="bar-chart-outline"
-        ></StudentInfos>
-
-        <View style={{ paddingTop: 30 }}>
-          <ButtonCustom
-            text="retour"
-            btnPrimary
-            color={COLORS.white}
-            iconName="return-up-back-outline"
-            onPress={() => navigation.goBack()}
-          />
-        </View>
+        <ButtonCustom
+          text="retour"
+          btnPrimary
+          color={COLORS.white}
+          iconName="return-up-back-outline"
+          onPress={() => navigation.goBack()}
+        />
       </View>
     </SafeAreaView>
   )

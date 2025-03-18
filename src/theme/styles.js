@@ -13,19 +13,22 @@ export const globalStyles = StyleSheet.create({
     color: COLORS.white,
     textTransform: 'uppercase',
     textAlign: 'left',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    fontWeight: 'bold'
   },
   h1: {
     fontSize: TYPOGRAPHY.fontSizeXLarge,
     color: COLORS.white,
     textTransform: 'uppercase',
-    textAlign: 'left'
+    textAlign: 'left',
+    fontWeight: 'bold'
   },
   h2: {
     fontSize: TYPOGRAPHY.fontSizeLarge,
     color: COLORS.white,
     textTransform: 'inherit',
-    textAlign: 'left'
+    textAlign: 'left',
+    fontWeight: 'bold'
   },
   h3: {
     fontSize: TYPOGRAPHY.fontSizeLarge,
@@ -49,8 +52,7 @@ export const globalStyles = StyleSheet.create({
     textTransform: 'none',
     fontSize: TYPOGRAPHY.fontSizeExtraSmall,
     textAlign: 'left',
-    lineHeight: 23,
-    width: '100%'
+    lineHeight: 23
   },
   container: {
     flex: 1

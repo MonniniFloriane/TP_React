@@ -12,7 +12,7 @@ const ListDetail = ({ text, onPress, iconName, color, text2 }) => {
 
       <View>
         <TouchableOpacity
-          style={{ flexDirection: 'row', alignItems: 'flex-end', borderBottomWidth: 1, borderBottomColor: COLORS.primary }}
+          style={{ flexDirection: 'row', alignItems: 'flex-end', borderBottomWidth: 1, borderBottomColor: COLORS.primary, gap: 10 }}
           onPress={onPress}
         >
           <Text style={[globalStyles.paragraphLeft, color && { color: color }]}>Voir plus</Text>

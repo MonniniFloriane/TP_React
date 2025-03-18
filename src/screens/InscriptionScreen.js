@@ -1,5 +1,5 @@
-//import { useState } from 'react'
-import { ImageBackground, SafeAreaView, ScrollView, StyleSheet, View, input } from 'react-native'
+import { useState } from 'react'
+import { ImageBackground, SafeAreaView, ScrollView, StyleSheet, View, Button } from 'react-native'
 //import { updateUserApi } from '../api/userApi'
 import ButtonCustom from '../components/ButtonCustom'
 import InputCustom from '../components/InputCustom'
@@ -8,7 +8,7 @@ import TextCustom from '../components/TextCustom'
 import { COLORS } from '../theme/styles'
 //import { emailValidator, validator } from '../utils/validators'
 import { rangeYear } from '../utils/helpers'
-//import DatePicker from 'react-date-picker'
+import DateTimePicker from '@react-native-community/datetimepicker'
 
 const InscriptionScreen = ({ navigation, route }) => {
   /*const [buildYear, setBuildYear] = useState(new Date().getFullYear())
@@ -19,6 +19,19 @@ const InscriptionScreen = ({ navigation, route }) => {
       navigation.goBack()
     }
   }*/
+
+  const [date, setDate] = useState(new Date())
+  const [show, setShow] = useState(false)
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date
+    setShow(Platform.Android === 'android') // Sur iOS, le picker reste visible
+    setDate(currentDate)
+  }
+
+  const showDatePicker = () => {
+    setShow(true)
+  }
 
   return (
     <ScrollView
@@ -35,40 +48,39 @@ const InscriptionScreen = ({ navigation, route }) => {
           color={COLORS.primary}
         />
         <View style={{ gap: 30 }}>
-          <View style={{ paddingTop: 30 }}>
-            <TextCustom
-              text="Nom"
-              h2
-              color={COLORS.primary}
-            />
-            <InputCustom
-              color={COLORS.primary}
-              inputPrimary
-              //onChangeText={setEmail}
-              placeholder="Entrer un nom"
-              //value={email}
-              width={'100%'}
-            />
-          </View>
+          <View style={{ paddingTop: 30, flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+            <View style={{ width: '48%' }}>
+              <TextCustom
+                text="Nom"
+                h2
+                color={COLORS.primary}
+                iconName="person-outline"
+              />
+              <InputCustom
+                color={COLORS.primary}
+                inputPrimary
+                //onChangeText={setEmail}
+                placeholder="Entrer un nom"
+                //value={email}
+                width={'100%'}
+              />
+            </View>
 
-          <ImageBackground style={{ backgroundColor: COLORS.secondary, height: 2, width: '100%' }}>
-            <TextCustom text={'-'} />
-          </ImageBackground>
-
-          <View>
-            <TextCustom
-              text="Prenom"
-              h2
-              color={COLORS.primary}
-            />
-            <InputCustom
-              color={COLORS.primary}
-              inputPrimary
-              //onChangeText={setEmail}
-              placeholder="Entrer un prenom"
-              //value={email}
-              width={'100%'}
-            />
+            <View style={{ width: '48%' }}>
+              <TextCustom
+                text="Prenom"
+                h2
+                color={COLORS.primary}
+              />
+              <InputCustom
+                color={COLORS.primary}
+                inputPrimary
+                //onChangeText={setEmail}
+                placeholder="Entrer un prenom"
+                //value={email}
+                width={'100%'}
+              />
+            </View>
           </View>
 
           <ImageBackground style={{ backgroundColor: COLORS.secondary, height: 2, width: '100%' }}>
@@ -80,11 +92,23 @@ const InscriptionScreen = ({ navigation, route }) => {
               text="Date de naissance"
               h2
               color={COLORS.primary}
+              iconName="calendar-outline"
             />
-            <input
-              aria-label="Date"
-              type="date"
-            />
+            <View>
+              <Button
+                onPress={showDatePicker}
+                title="Choisir une date"
+              />
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode="date"
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+            </View>
           </View>
 
           <ImageBackground style={{ backgroundColor: COLORS.secondary, height: 2, width: '100%' }}>
@@ -96,6 +120,7 @@ const InscriptionScreen = ({ navigation, route }) => {
               text="E-mail"
               h2
               color={COLORS.primary}
+              iconName="mail-outline"
             />
             <InputCustom
               color={COLORS.primary}
@@ -116,6 +141,7 @@ const InscriptionScreen = ({ navigation, route }) => {
               text="Téléphone"
               h2
               color={COLORS.primary}
+              iconName="phone-portrait-outline"
             />
             <InputCustom
               color={COLORS.primary}
@@ -136,6 +162,7 @@ const InscriptionScreen = ({ navigation, route }) => {
               text="Moyenne générale"
               h2
               color={COLORS.primary}
+              iconName="bar-chart-outline"
             />
             <InputCustom
               color={COLORS.primary}
@@ -151,8 +178,16 @@ const InscriptionScreen = ({ navigation, route }) => {
             <ButtonCustom
               btnSecondary
               color={COLORS.primary}
-              //onPress={handleConfirm}
+              onPress={() => navigation.navigate('FicheEtudiant')}
               text="confirm"
+            />
+
+            <ButtonCustom
+              text="retour"
+              btnPrimary
+              color={COLORS.white}
+              iconName="return-up-back-outline"
+              onPress={() => navigation.goBack()}
             />
           </View>
         </View>

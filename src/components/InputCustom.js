@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput, View } from 'react-native'
 import { COLORS, SPACING, globalStyles } from '../theme/styles'
 
-const InputCustom = ({ placeholder, value, secureTextEntry, multiline, numberOfLines, onChangeText, onSubmitEditing, inputPrimary, width, color }) => {
+const InputCustom = ({ placeholder, value, secureTextEntry, multiline, numberOfLines, onChangeText, onSubmitEditing, inputPrimary, arialabel, type, width, color }) => {
   return (
     <View style={[styles.inputDefault, inputPrimary && styles.inputPrimary, width && { width: width }]}>
       <TextInput
@@ -15,6 +15,8 @@ const InputCustom = ({ placeholder, value, secureTextEntry, multiline, numberOfL
         secureTextEntry={secureTextEntry ? true : false}
         style={[globalStyles.paragraphLeft, color && { color: color }]}
         value={value}
+        aria-label={value}
+        type={value}
       />
     </View>
   )
